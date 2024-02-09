@@ -18,7 +18,7 @@ ssh -i C:\Users\benle\Downloads\webdav_key.pem azureuser@52.139.216.120
 
 ## Step 3
 ```
-Run the following commands
+Run the following commands:
 sudo apt update
 sudo apt install apache2
 sudo systemctl enable apache2
@@ -33,7 +33,7 @@ sudo chmod -R 755 /var/www/webdav
 
 ## Step 4
 ```
-Modify Apache config file
+Modify Apache config file:
 sudo nano /etc/apache2/sites-available/000-default.conf
 
 Add the following configuration **inside** the <VirtualHost *:80> block:
@@ -54,6 +54,7 @@ Close nano with CTRL+X
 
 ## Step 5
 ```
+Restart Apache
 sudo systemctl restart apache2
 ```
 
