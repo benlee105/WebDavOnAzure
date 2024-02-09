@@ -1,7 +1,7 @@
 # WebDavOnAzure
 Setup WebDav server on Azure
 Inspired by:
-https://reintech.io/blog/installing-configuring-webdav-server-ubuntu-22
+https://reintech.io/blog/installing-configuring-webdav-server-ubuntu-22 &&
 https://www.blackhillsinfosec.com/deploying-a-webdav-server/
 
 ## Step 1
