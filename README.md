@@ -59,6 +59,28 @@ Close nano with CTRL+X
 sudo systemctl restart apache2
 ```
 
+## Step 6
+```
+Limit access to the WebDav server on Azure
+Networking > Add inbound rule
+Source is your victim IP
+Destination your server (or any is fine for now)
+Ports 80 and 443
+Priority any number is fine
+```
+![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d9df2f7b-968b-40e9-b5ca-9c24dfbeb91b)
+
+
+## Step 7
+```
+In Ubuntu VM, allow 80 and 443 traffic in:
+
+sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+sudo service iptables save
+```
+
+
 ## Troubleshoot: If unable to access files in WebDav folder
 ```
 ls -la /www/apache
