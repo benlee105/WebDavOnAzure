@@ -64,3 +64,12 @@ ls -la /www/apache
 You will face issues if file permissions are "root root", it MUST be "www-data www-data"
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d93152de-ebaa-414b-a7ed-825e82aa3364)
+
+## Troubleshoot: Uploading files to WebDav server
+```
+Create an Azure data container, upload files into it, set permission as Blob
+Then use wget on the Ubuntu server!
+Then chown to set permission to www-data e.g.
+
+sudo chown www-data:www-data *.exe
+```
