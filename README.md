@@ -73,7 +73,7 @@ sudo service iptables save
 Limit access to the WebDav server on Azure
 Networking > Add inbound rule
 Source is your victim IP
-Destination your server (or any is fine for now)
+Destination any
 Ports 80 and 443
 Priority any number is fine
 ```
