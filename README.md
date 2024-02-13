@@ -4,7 +4,7 @@ Inspired by:
 https://reintech.io/blog/installing-configuring-webdav-server-ubuntu-22 &&
 https://www.blackhillsinfosec.com/deploying-a-webdav-server/
 
-## Step 1
+## Step 1: Create VM on Azure
 ```
 In Azure, create a Virtual Machine with Ubuntu.
 Leave all settings in Azure as default then click Review + Create
@@ -12,14 +12,14 @@ Download the SSH key when prompted
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/246498dc-874f-4dff-a2d0-587d1e4f3e52)
 
-## Step 2
+## Step 2: SSH into VM
 ```
 SSH into the server using the downloaded SSH key
 ssh -i C:\Users\benle\Downloads\webdav_key.pem azureuser@52.139.216.120
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/77b100d0-9fe5-40a0-a005-3e62d977b125)
 
-## Step 3
+## Step 3: Install apache2 on VM
 ```
 Run the following commands:
 sudo apt update
@@ -34,7 +34,7 @@ sudo chown -R www-data:www-data /var/www/webdav
 sudo chmod -R 755 /var/www/webdav
 ```
 
-## Step 4
+## Step 4: Configure Apache
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
 
@@ -54,12 +54,21 @@ Add the following configuration **inside** the <VirtualHost *:80> block:
 Close nano with CTRL+X
 ```
 
-## Step 5
+## Step 5: Restart Apache
 ```
 sudo systemctl restart apache2
 ```
 
-## Step 6
+## Step 6: Secure WebDav Access via iptables
+```
+In Ubuntu VM, allow 80 and 443 traffic in:
+
+sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+sudo service iptables save
+```
+
+## Step 7: Secure WebDav Access via Azure route
 ```
 Limit access to the WebDav server on Azure
 Networking > Add inbound rule
@@ -69,16 +78,6 @@ Ports 80 and 443
 Priority any number is fine
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d9df2f7b-968b-40e9-b5ca-9c24dfbeb91b)
-
-
-## Step 7
-```
-In Ubuntu VM, allow 80 and 443 traffic in:
-
-sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-sudo service iptables save
-```
 
 
 ## Troubleshoot: If unable to access files in WebDav folder
