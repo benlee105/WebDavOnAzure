@@ -39,17 +39,16 @@ sudo chmod -R 755 /var/www/webdav
 sudo nano /etc/apache2/sites-available/000-default.conf
 
 Add the following configuration **inside** the <VirtualHost *:80> block:
+<VirtualHost *:80>
+... _other config_
+Alias /webdav /var/www/webdav
 <Directory /var/www/webdav>
   Options Indexes FollowSymLinks
   AllowOverride None
   Require all granted
   Dav On
-    <LimitExcept GET HEAD OPTIONS PROPFIND>
-      Deny from all
-    </LimitExcept>
-    Satisfy all
-  </Location>
 </Directory>
+</VirtualHost>
 
 Close nano with CTRL+X
 ```
