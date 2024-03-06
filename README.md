@@ -83,6 +83,9 @@ Priority any number is fine
 ```
 ls -la /www/apache
 You will face issues if file permissions are "root root", it MUST be "www-data www-data"
+To fix, use command below
+
+sudo chown www-data:www-data <file>
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d93152de-ebaa-414b-a7ed-825e82aa3364)
 
