@@ -78,8 +78,19 @@ Priority any number is fine
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d9df2f7b-968b-40e9-b5ca-9c24dfbeb91b)
 
-## Step 8: Secure webserver with HTTPS, with Let's Encrypt
+## Step 8: Set DNS name for server
 ```
+In Azure, click on your server, then click on the DNS name option, it'll redirect you to your IP configuration
+Then fill up the DNS Name Label (optional) with the DNS name you want, then Save.
+```
+![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/6e6e16a1-093c-4d52-bcf2-d6a58206ac2f)
+
+![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/9440e4f3-41a5-4a6a-b766-906a5ba51f23)
+
+
+## Step 9: Secure webserver with HTTPS, with Let's Encrypt
+```
+SSH into your Ubuntu server then run the commands below
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
