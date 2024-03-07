@@ -78,6 +78,18 @@ Priority any number is fine
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d9df2f7b-968b-40e9-b5ca-9c24dfbeb91b)
 
+## Step 8: Secure webserver with HTTPS, with Let's Encrypt
+```
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --apache
+Type in your cloudapp.azure.com DNS
+```
+![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/4e6f5ace-ae36-4b95-868a-51e11fe3eb44)
+
+
+
 
 ## Troubleshoot: If unable to access files in WebDav folder
 ```
