@@ -99,7 +99,16 @@ Type in your cloudapp.azure.com DNS
 ```
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/4e6f5ace-ae36-4b95-868a-51e11fe3eb44)
 
-
+## Step 10: Harden SSL settings
+```
+Based on recommendations here https://httpd.apache.org/docs/trunk/ssl/ssl_howto.html
+sudo nano /etc/apache2/mods-available/ssl.conf
+SSLCipherSuite ECDHE-ECDSA-AES-256-GCM-SHA384:!aNULL
+SSLProtocol -all +TLSv1.2 +TLSv1.3
+SSLCompression Off
+SSLSessionTickets off
+```
+![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/acc85449-698d-4998-84b1-039f47693e4c)
 
 
 ## Troubleshoot: If unable to access files in WebDav folder
