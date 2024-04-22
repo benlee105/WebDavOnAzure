@@ -102,8 +102,7 @@ sudo certbot --apache
 ```  
 When certbot prompts, type in your cloudapp.azure.com domain name.  
 
-![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/4e6f5ace-ae36-4b95-868a-51e11fe3eb44)
-
+![Step 9](https://github.com/benlee105/WebDavOnAzure/assets/62729308/3515fede-cf3c-4cd1-9deb-7e4fac45fcba)
 
 ## Step 10: Harden SSL settings
 Harden based on recommendations here https://httpd.apache.org/docs/trunk/ssl/ssl_howto.html  
