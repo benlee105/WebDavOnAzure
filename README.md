@@ -154,13 +154,13 @@ You will face issues if file permissions are "root root", it MUST be "www-data w
 ![image](https://github.com/benlee105/WebDavOnAzure/assets/62729308/d93152de-ebaa-414b-a7ed-825e82aa3364)
   
 
-To fix, use command below  
+To fix, use command below:  
 ```
 cd /var/www/webdav
 sudo chown www-data:www-data <file>
 ```  
 
-Or if you want to apply www-data permissions based on filetype  
+Or if you want to apply www-data permissions based on filetype:  
 ```
 cd /var/www/webdav
 sudo chown www-data:www-data *.exe
